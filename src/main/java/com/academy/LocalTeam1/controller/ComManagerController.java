@@ -16,7 +16,7 @@ public class ComManagerController {
     @Autowired
     private ComManagerService comManagerService;
 
-    @PutMapping("/save/{id}")
+    @PutMapping("{id}")
     private ComManager updateComManager(@RequestBody ComManager comManager, @PathVariable Long id) throws RecordNotFoundException, InvalidStringFormatException{
         return comManagerService.updateComManager(comManager,id);
     }
