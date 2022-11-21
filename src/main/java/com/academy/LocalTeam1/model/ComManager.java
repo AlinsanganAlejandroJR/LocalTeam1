@@ -6,8 +6,6 @@ import javax.persistence.*;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-@Getter
-@Setter
 @Entity
 @Table(name = "CommunityManager")
 public class ComManager {
@@ -20,4 +18,6 @@ public class ComManager {
     private String middleName;
     @Column
     private String lastName;
+    @Column
+    private boolean isActive;
 }
