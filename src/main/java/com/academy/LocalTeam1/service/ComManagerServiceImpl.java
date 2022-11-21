@@ -10,7 +10,6 @@ import org.springframework.web.bind.annotation.RequestBody;
 
 @Service
 public class ComManagerServiceImpl implements ComManagerService{
-
     @Autowired
     private ComManagerRepository repository;
 
