@@ -6,4 +6,5 @@ import com.academy.LocalTeam1.model.ComManager;
 
 public interface ComManagerService {
     public ComManager updateComManager(ComManager comManager, Long id) throws RecordNotFoundException, InvalidStringFormatException;
+    public ComManager addComManager(ComManager comManager) throws InvalidStringFormatException;
 }
