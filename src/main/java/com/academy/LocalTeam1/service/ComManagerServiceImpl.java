@@ -5,13 +5,15 @@ import com.academy.LocalTeam1.exception.RecordNotFoundException;
 import com.academy.LocalTeam1.model.ComManager;
 import com.academy.LocalTeam1.repository.ComManagerRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
+@Service
 public class ComManagerServiceImpl implements ComManagerService{
 
     @Autowired
     private ComManagerRepository repository;
 
-    private static final String FIRST_AND_LAST_NAME =  "[a-zA-Z-,.Ññ]{2, 20}";
+    private static final String FIRST_AND_LAST_NAME =  "[a-zA-Z-,.Ññ]{2,20}";
     private static final String MIDDLE_NAME =  "[a-zA-Z-,.Ññ]{0,20}";
 
     @Override
