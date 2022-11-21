@@ -20,14 +20,22 @@ public class ComManagerServiceImpl implements ComManagerService{
     public ComManager updateComManager(ComManager updateComManager, Long id) throws InvalidStringFormatException, RecordNotFoundException {
         ComManager comManager = repository.findById(id)
                 .orElseThrow(() -> new RecordNotFoundException("This community manager is not in the record!"));
-        if(!updateComManager.getFirstName().matches(FIRST_AND_LAST_NAME)
-                || !updateComManager.getLastName().matches(FIRST_AND_LAST_NAME)
-                || !updateComManager.getMiddleName().matches(MIDDLE_NAME)) {
-            throw new InvalidStringFormatException("Invalid format for name");
+        if(!checkIfValid(updateComManager)){
+            throw new InvalidStringFormatException("Invalid format for name!");
+
         }
         comManager.setFirstName(updateComManager.getFirstName());
         comManager.setLastName(updateComManager.getLastName());
         comManager.setMiddleName(updateComManager.getMiddleName());
         return repository.save(comManager);
+    }
+
+    private boolean checkIfValid(ComManager comManager){
+        if(!comManager.getFirstName().matches(FIRST_AND_LAST_NAME)
+                || !comManager.getLastName().matches(FIRST_AND_LAST_NAME)
+                || !comManager.getMiddleName().matches(MIDDLE_NAME)) {
+            return false;
+        }
+        return true;
     }
 }
