@@ -30,6 +30,14 @@ public class ComManagerServiceImpl implements ComManagerService{
         return repository.save(comManager);
     }
 
+    @Override
+    public ComManager addComManager(ComManager comManager) throws InvalidStringFormatException {
+        if(!checkIfValid(comManager)){
+            throw new InvalidStringFormatException("Invalid format for name!");
+        }
+        return repository.save(comManager);
+    }
+
     private boolean checkIfValid(ComManager comManager){
         if(!comManager.getFirstName().matches(FIRST_AND_LAST_NAME)
                 || !comManager.getLastName().matches(FIRST_AND_LAST_NAME)
