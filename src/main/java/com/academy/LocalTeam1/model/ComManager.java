@@ -1,6 +1,4 @@
-package com.academy.team1.model;
-
-
+package com.academy.LocalTeam1.model;
 import lombok.*;
 
 import javax.persistence.*;
